@@ -3,13 +3,20 @@ package com.springboot.app.item.models;
 public class Item {
 	private Product product;
 	private Integer amount;
+	private Double total;
 
 	public Item() {}
 
-	public Item(Product product, Integer amount) {	
+	public Item(Product product, Integer amount, Double total) {	
 		this.product = product;
 		this.amount = amount;
+		this.total=total;
 	}	
+	
+	public Item(Product product, Integer amount) {	
+		this.product = product;
+		this.amount = amount;		
+	}
 
 
 	public Product getProduct() {
@@ -25,7 +32,11 @@ public class Item {
 		this.amount = amount;
 	}	
 
-	private Double getTotal() {	
-		return product.getPrice()*amount.doubleValue();		
+	public void setTotal(Double total) {
+		this.total = total;
 	}
+
+	public Double getTotal() {
+		return product.getPrice()*amount.doubleValue();	
+	}	
 }
